@@ -13,7 +13,7 @@ Console.Write("Opcion: ");
 int metodoPago = int.Parse(Console.ReadLine());
 
 Console.Write("¿Tiene cupon? (Si/No): ");
-string tieneCupon = Console.ReadLine().ToUpper();
+string tieneCupon = (Console.ReadLine());
 
 string codigo = "";
 if (tieneCupon == "Si")
@@ -45,3 +45,41 @@ else if (metodoPago < 1 || metodoPago > 3)
 
 double porcentajeDescuento = 0;
 double recargo = 0;
+switch (opcion)
+{
+    case 1:
+        if (metodoPago == 1)
+        {
+            porcentajeDescuento = 0.10;
+        }
+        else if (metodoPago == 2)
+        {
+            porcentajeDescuento = 0.07;
+        }
+        break;
+
+    case 2:
+        porcentajeDescuento = 0.05;
+        break;
+}
+
+if (tieneCupon == "S" || tieneCupon == "s")
+{
+    if (codigo[0] == 'U' || codigo[0] == 'u')
+    {
+        int largo = codigo.Length;
+        char ultimoChar = codigo[largo - 1];
+
+        if (ultimoChar == '0' || ultimoChar == '2' || ultimoChar == '4' || ultimoChar == '6' || ultimoChar == '8')
+        {
+            porcentajeDescuento = porcentajeDescuento + 0.05;
+        }
+    }
+}
+
+if (fraude == 2 || fraude == 3)
+{
+    porcentajeDescuento = 0;
+    recargo = montoBase * 0.15;
+    Console.WriteLine("!!! ALERTA ANTIFRAUDE: Penalizacion aplicada !!!");
+}
