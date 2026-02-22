@@ -83,3 +83,11 @@ if (fraude == 2 || fraude == 3)
     recargo = montoBase * 0.15;
     Console.WriteLine("!!! ALERTA ANTIFRAUDE: Penalizacion aplicada !!!");
 }
+double descuentoAplicado = montoBase * porcentajeDescuento;
+double totalFinal = montoBase - descuentoAplicado + recargo;
+
+Console.WriteLine("-------------------------------------------");
+Console.WriteLine("Descuentos aplicados: " + descuentoAplicado);
+Console.WriteLine("Recargos: " + recargo);
+Console.WriteLine("Total final: " + totalFinal);
+Console.WriteLine("-------------------------------------------");
